@@ -15,6 +15,17 @@ RSpec.describe 'Games', type: :request do
                                                           id: game.id, name: game.name
                                                         }])
     end
+
+    context 'when it has query params' do
+      context 'when limiting the number of games returned' do
+        let(:query_params) { { limit: 10 } }
+
+        it 'returns 10 results' do
+          get '/api/v1/games', params: query_params
+          expect(response).to eq(10)
+        end
+      end
+    end
   end
 
   describe 'get /games/:id' do

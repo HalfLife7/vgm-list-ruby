@@ -163,6 +163,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.0.2)
       mustermann (>= 1.0.0)
+    mysql2 (0.5.5)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -333,6 +334,7 @@ DEPENDENCIES
   grape_on_rails_routes
   importmap-rails
   jbuilder
+  mysql2
   puma (~> 5.0)
   rails (~> 7.0.3)
   rspec-its
@@ -356,4 +358,4 @@ RUBY VERSION
    ruby 2.7.5p203
 
 BUNDLED WITH
-   2.3.22
+   2.3.9

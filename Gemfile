@@ -10,6 +10,7 @@ gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'mysql2'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

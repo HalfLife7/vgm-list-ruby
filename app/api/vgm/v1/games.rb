@@ -5,8 +5,11 @@ module Vgm
       resources :games do
         # GET /api/v1/games
         desc 'Return all games'
+        params do
+          optional :limit, type: Integer, desc: 'limit results', default: 5
+        end
         get do
-          games = Game.all
+          games = Game.all.limit(params[:limit])
           status 200
           present games, with: Entities::Game
         rescue StandardError => e
