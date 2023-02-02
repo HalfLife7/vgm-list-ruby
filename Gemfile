@@ -11,9 +11,15 @@ gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'mysql2'
+gem 'date', '~> 3.3.3'
+gem 'timeout', '~> 0.3.1'
+gem 'rake', '~> 13.0'
+
+## Background utils/Sidekiq
+gem 'sidekiq', '~> 4.2'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem 'redis', '~> 3.2'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

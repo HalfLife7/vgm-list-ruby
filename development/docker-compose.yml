@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  db:
+    image: "mysql:8.0.20"
+    restart: always
+    environment:
+      MYSQL_DATABASE: vgm_list
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+        - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    expose:
+      - "3306"
+    networks:
+      - shared
+  redis:
+    image: redis:4.0.11
+    command: redis-server
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+    networks:
+      - shared
+  web:
+    build: ../
+    command: bundle exec rails s -p 3000 -e development -b '0.0.0.0'
+    environment:
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_NAME: vgm_list
+      DB_PORT: 3306
+      DB_HOST: 127.0.0.1
+      RAILS_ENV: development
+      RAILS_MAX_THREADS: 5
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      BUNDLE_PATH: /bundle
+    volumes:
+      - ../:/rails-app
+      - bundle:/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - shared
+volumes:
+  db:
+  bundle:
+  redis:
+networks:
+  shared:

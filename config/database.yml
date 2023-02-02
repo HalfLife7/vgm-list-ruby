@@ -1,22 +1,18 @@
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
   adapter: mysql2
-  encoding: utf8mb4
-  reconnect: false
-  database: public
+  encoding: utf8
   pool: 5
   username: root
   password: root
+  database: vgm_list
   host: 127.0.0.1
-  port: 8002
+  port: 3306
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+development:
+  <<: *default
+
 test:
   <<: *default
-  database: db/test.sqlite3
+
+production:
+  <<: *default
