@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_27_014755) do
-  create_table "games", force: :cascade do |t|
+  create_table "games", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "aggregated_rating_count"
     t.float "aggregated_rating"
     t.integer "category"
