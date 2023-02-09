@@ -1,0 +1,3 @@
+class GameArtwork < ApplicationRecord
+
+end

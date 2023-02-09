@@ -11,6 +11,8 @@ module Vgm
       Grape::Entity.format_with :unix_to_iso8601 do |date|
         Time.at(date).iso8601 if date
       end
+
+      # add helper to convert to url for game_artwork
     end
   end
 end
