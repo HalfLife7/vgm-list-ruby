@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
+  host: db
+
+development:
+  <<: *default
+  database: vgm_list
+
+test:
+  <<: *default
+  database: vgm_list_test
+
+production:
+  <<: *default
+  database: vgm_list_production
+  username: vgm_list_App
+  password: <%= ENV['VGMLISTAPP_DATABASE_PASSWORD'] %>
