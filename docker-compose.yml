@@ -14,7 +14,7 @@ services:
     ports:
       - "30007:3000"
     volumes:
-      - ./rails:/vgm_list_app
+      - ./rails:/vgm_list_App
     depends_on:
       - db
 volumes:

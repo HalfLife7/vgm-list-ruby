@@ -5,7 +5,7 @@ module Vgm
 
       # Entity helpers
       Grape::Entity.format_with :iso8601 do |date|
-        date.iso8601 if date
+        date&.iso8601
       end
 
       Grape::Entity.format_with :unix_to_iso8601 do |date|
