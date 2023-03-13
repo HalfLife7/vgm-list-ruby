@@ -1,7 +1,6 @@
 class CreateGames < ActiveRecord::Migration[7.0]
   def change
-    create_table :games, id: false do |t|
-      t.primary_key :id
+    create_table :games do |t|
       t.integer :aggregated_rating_count
       t.float :aggregated_rating
       t.integer :category
