@@ -9,7 +9,17 @@ module Vgm
           optional :limit, type: Integer, desc: 'limit results', default: 5
         end
         get do
-          games = Game.all.limit(params[:limit])
+          games = Game.includes(
+                      :game_alternative_names,
+                      :game_artworks,
+                      :game_collections,
+                      :game_covers,
+                      :game_platforms,
+                      :game_screenshots,
+                      :game_videos,
+                      :game_websites,
+                      :album_games
+                    ).limit(params[:limit])
           status 200
           present games, with: Entities::Game
         rescue StandardError => e

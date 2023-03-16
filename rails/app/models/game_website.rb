@@ -21,5 +21,5 @@ class GameWebsite < ApplicationRecord
     discord
   ].freeze
 
-  validates :category, inclusion: {in: categories.keys}
+  validates :category, inclusion: { in: categories.keys }
 end

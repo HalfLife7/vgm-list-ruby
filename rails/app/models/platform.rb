@@ -1,4 +1,7 @@
 class Platform < ApplicationRecord
+  has_many :platform_logos
+  has_many :game_platforms
+
   enum category: %i[
     console
     arcade
