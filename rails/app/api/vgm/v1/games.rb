@@ -14,7 +14,7 @@ module Vgm
                       :game_artworks,
                       :collections,
                       :game_covers,
-                      :game_platforms,
+                      :platforms,
                       :game_screenshots,
                       :game_videos,
                       :game_websites,

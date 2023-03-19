@@ -14,7 +14,7 @@ module Vgm
         expose :game_artworks, using: Entities::GameArtwork
         expose :collections, using: Entities::Collection
         expose :game_covers, using: Entities::GameCover
-        expose :game_platforms, using: Entities::GamePlatform
+        expose :platforms, using: Entities::Platform
         expose :game_screenshots, using: Entities::GameScreenshot
         expose :game_videos, using: Entities::GameVideo
         expose :game_websites, using: Entities::GameWebsite
