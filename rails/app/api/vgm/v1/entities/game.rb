@@ -12,13 +12,13 @@ module Vgm
         expose :summary, documentation: { type: 'String' }
         expose :game_alternative_names, using: Entities::GameAlternativeName
         expose :game_artworks, using: Entities::GameArtwork
-        expose :game_collections, using: Entities::GameCollection
+        expose :collections, using: Entities::Collection
         expose :game_covers, using: Entities::GameCover
-        expose :game_platforms, using: Entities::GamePlatform
+        expose :platforms, using: Entities::Platform
         expose :game_screenshots, using: Entities::GameScreenshot
         expose :game_videos, using: Entities::GameVideo
         expose :game_websites, using: Entities::GameWebsite
-        expose :album_games, using: Entities::AlbumGame
+        expose :albums, using: Entities::Album
       end
     end
   end

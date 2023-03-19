@@ -1,3 +1,4 @@
 class Collection < ApplicationRecord
-  has_many :game_collections
+  has_and_belongs_to_many :games,
+                          join_table: 'game_collections'
 end
