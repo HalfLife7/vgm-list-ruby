@@ -12,7 +12,7 @@ module Vgm
           games = Game.includes(
                       :game_alternative_names,
                       :game_artworks,
-                      :game_collections,
+                      :collections,
                       :game_covers,
                       :game_platforms,
                       :game_screenshots,

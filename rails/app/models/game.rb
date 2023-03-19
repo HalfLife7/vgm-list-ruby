@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   has_many :game_alternative_names
   has_many :game_artworks
-  has_many :game_collections
+  has_and_belongs_to_many :collections
   has_many :game_covers
   has_many :game_platforms
   has_many :game_screenshots
