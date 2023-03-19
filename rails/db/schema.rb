@@ -43,13 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.index %w[id album_id], name: 'id', unique: true
   end
 
-  create_table 'album_games', primary_key: %w[album_id game_id], charset: 'utf8mb4',
-                              collation: 'utf8mb4_unicode_ci', force: :cascade do |t|
-    t.integer 'album_id', null: false
-    t.integer 'game_id', null: false
-    t.index ['game_id'], name: 'game_id'
-  end
-
   create_table 'album_lyricists', primary_key: %w[artist_id album_id], charset: 'utf8mb4',
                                   collation: 'utf8mb4_unicode_ci', force: :cascade do |t|
     t.integer 'artist_id', null: false
@@ -104,6 +97,13 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.integer 'updated_at'
     t.text 'url'
     t.string 'checksum'
+  end
+
+  create_table 'game_albums', primary_key: %w[album_id game_id], charset: 'utf8mb4',
+                              collation: 'utf8mb4_unicode_ci', force: :cascade do |t|
+    t.integer 'album_id', null: false
+    t.integer 'game_id', null: false
+    t.index ['game_id'], name: 'game_id'
   end
 
   create_table 'game_alternative_names', id: :integer, charset: 'utf8mb4', collation: 'utf8mb4_unicode_ci',
@@ -226,14 +226,14 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   add_foreign_key 'album_composers', 'artists', name: 'album_composers_ibfk_1', on_delete: :cascade
   add_foreign_key 'album_covers', 'albums', name: 'album_covers_ibfk_1', on_delete: :cascade
   add_foreign_key 'album_discs', 'albums', name: 'album_discs_ibfk_1', on_delete: :cascade
-  add_foreign_key 'album_games', 'albums', name: 'album_games_ibfk_1', on_delete: :cascade
-  add_foreign_key 'album_games', 'games', name: 'album_games_ibfk_2', on_delete: :cascade
   add_foreign_key 'album_lyricists', 'albums', name: 'album_lyricists_ibfk_2', on_delete: :cascade
   add_foreign_key 'album_lyricists', 'artists', name: 'album_lyricists_ibfk_1', on_delete: :cascade
   add_foreign_key 'album_performers', 'albums', name: 'album_performers_ibfk_2', on_delete: :cascade
   add_foreign_key 'album_performers', 'artists', name: 'album_performers_ibfk_1', on_delete: :cascade
   add_foreign_key 'album_stores', 'albums', name: 'album_stores_ibfk_1', on_delete: :cascade
   add_foreign_key 'album_tracks', 'albums', name: 'album_tracks_ibfk_1', on_delete: :cascade
+  add_foreign_key 'game_albums', 'albums', name: 'game_albums_ibfk_1', on_delete: :cascade
+  add_foreign_key 'game_albums', 'games', name: 'game_albums_ibfk_2', on_delete: :cascade
   add_foreign_key 'game_alternative_names', 'games', name: 'game_alternative_names_ibfk_1', on_delete: :cascade
   add_foreign_key 'game_artworks', 'games', name: 'game_artworks_ibfk_1', on_delete: :cascade
   add_foreign_key 'game_collections', 'collections', name: 'game_collections_ibfk_2', on_delete: :cascade
