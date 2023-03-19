@@ -18,7 +18,7 @@ module Vgm
         expose :game_screenshots, using: Entities::GameScreenshot
         expose :game_videos, using: Entities::GameVideo
         expose :game_websites, using: Entities::GameWebsite
-        expose :album_games, using: Entities::AlbumGame
+        expose :albums, using: Entities::Album
       end
     end
   end

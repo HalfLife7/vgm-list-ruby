@@ -18,7 +18,7 @@ module Vgm
                       :game_screenshots,
                       :game_videos,
                       :game_websites,
-                      :album_games
+                      :albums
                     ).limit(params[:limit])
           status 200
           present games, with: Entities::Game

@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   has_many :game_screenshots
   has_many :game_videos
   has_many :game_websites
-  has_many :album_games
+  has_and_belongs_to_many :albums
 
   enum category: %i[
     main_game
