@@ -10,16 +10,16 @@ module Vgm
         end
         get do
           games = Game.includes(
-                      :game_alternative_names,
-                      :game_artworks,
-                      :collections,
-                      :game_covers,
-                      :platforms,
-                      :game_screenshots,
-                      :game_videos,
-                      :game_websites,
-                      :albums
-                    ).limit(params[:limit])
+            :game_alternative_names,
+            :game_artworks,
+            :collections,
+            :game_covers,
+            :platforms,
+            :game_screenshots,
+            :game_videos,
+            :game_websites,
+            :albums
+          ).limit(params[:limit])
           status 200
           present games, with: Entities::Game
         rescue StandardError => e
