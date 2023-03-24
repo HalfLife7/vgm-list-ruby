@@ -5,7 +5,7 @@ class CreateGameArtworks < ActiveRecord::Migration[7.0]
       t.boolean :alpha_channel
       t.boolean :animated
       t.integer :height
-      t.references :image, null: false, foreign_key: true
+      t.integer :image_id
       t.text :url
       t.integer :width
       t.string :checksum
